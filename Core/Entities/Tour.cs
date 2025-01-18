@@ -39,6 +39,8 @@ namespace Core.Entities
         public int FoodSystemID { get; set; }
         public FoodSystem FoodSystem { get; set; }
 
+        public virtual ICollection<Order> Orders { get; set; }
+
     }
 }
     
