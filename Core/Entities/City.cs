@@ -20,5 +20,8 @@ namespace Core.Entities
         public int CountryID { get; set; }
         public Country Country { get; set; }
 
+        public virtual ICollection<Client> Clients { get; set; }
+        public virtual ICollection<Tour> Tours { get; set; }
+
     }
 }

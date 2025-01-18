@@ -15,10 +15,6 @@ namespace Core.Entities
         public int ID { get; set; }
         public string Name { get; set; }
 
-        //[ForeignKey(nameof(City))]   Поки не знаю треба чи ні
-        //public int CityID { get; set; }
-        //public City City { get; set; }
-
         public double Rating { get; set; }
 
         [ForeignKey(nameof(PhotosHotel))]
@@ -26,5 +22,7 @@ namespace Core.Entities
         public PhotosHotel PhotosHotel { get; set; }
 
         public string Description { get; set; }
+
+        public virtual ICollection<Room> Rooms { get; set; }
     }
 }

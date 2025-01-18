@@ -13,6 +13,10 @@ namespace Core.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-        public string Name { get; set; }
+        public string FilePath { get; set; }
+
+        [ForeignKey(nameof(Room))]
+        public int RoomID { get; set; }
+        public Room Room { get; set; }
     }
 }
