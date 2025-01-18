@@ -162,15 +162,10 @@ namespace Core.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PhotosHotelID")
-                        .HasColumnType("int");
-
                     b.Property<double>("Rating")
                         .HasColumnType("float");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("PhotosHotelID");
 
                     b.ToTable("Hotels");
                 });
@@ -286,17 +281,12 @@ namespace Core.Migrations
                     b.Property<int>("HotelID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PhotosRoomID")
-                        .HasColumnType("int");
-
                     b.Property<int>("TypeOfRoomID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
                     b.HasIndex("HotelID");
-
-                    b.HasIndex("PhotosRoomID");
 
                     b.HasIndex("TypeOfRoomID");
 
@@ -410,17 +400,6 @@ namespace Core.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("Core.Entities.Hotel", b =>
-                {
-                    b.HasOne("Core.Entities.PhotosHotel", "PhotosHotel")
-                        .WithMany()
-                        .HasForeignKey("PhotosHotelID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PhotosHotel");
-                });
-
             modelBuilder.Entity("Core.Entities.Order", b =>
                 {
                     b.HasOne("Core.Entities.Client", "Client")
@@ -462,7 +441,7 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Entities.PhotosHotel", b =>
                 {
                     b.HasOne("Core.Entities.Hotel", "Hotel")
-                        .WithMany()
+                        .WithMany("PhotosHotels")
                         .HasForeignKey("HotelID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -473,7 +452,7 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Entities.PhotosRoom", b =>
                 {
                     b.HasOne("Core.Entities.Room", "Room")
-                        .WithMany()
+                        .WithMany("PhotosRooms")
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -489,12 +468,6 @@ namespace Core.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.PhotosRoom", "PhotosRoom")
-                        .WithMany()
-                        .HasForeignKey("PhotosRoomID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Core.Entities.TypeOfRoom", "TypeOfRoom")
                         .WithMany("Room")
                         .HasForeignKey("TypeOfRoomID")
@@ -502,8 +475,6 @@ namespace Core.Migrations
                         .IsRequired();
 
                     b.Navigation("Hotel");
-
-                    b.Navigation("PhotosRoom");
 
                     b.Navigation("TypeOfRoom");
                 });
@@ -585,7 +556,14 @@ namespace Core.Migrations
 
             modelBuilder.Entity("Core.Entities.Hotel", b =>
                 {
+                    b.Navigation("PhotosHotels");
+
                     b.Navigation("Rooms");
+                });
+
+            modelBuilder.Entity("Core.Entities.Room", b =>
+                {
+                    b.Navigation("PhotosRooms");
                 });
 
             modelBuilder.Entity("Core.Entities.Tour", b =>

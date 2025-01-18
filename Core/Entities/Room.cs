@@ -25,10 +25,7 @@ namespace Core.Entities
         public int TypeOfRoomID { get; set; }
         public TypeOfRoom TypeOfRoom { get; set; }
 
-        [ForeignKey(nameof(PhotosRoom))]
-        public int PhotosRoomID { get; set; }
-        public PhotosRoom PhotosRoom { get; set; }
-
+        public virtual ICollection<PhotosRoom> PhotosRooms { get; set; }
 
         public string Description { get; set; }
     }

@@ -17,9 +17,7 @@ namespace Core.Entities
 
         public double Rating { get; set; }
 
-        [ForeignKey(nameof(PhotosHotel))]
-        public int PhotosHotelID { get; set; }
-        public PhotosHotel PhotosHotel { get; set; }
+        public virtual ICollection<PhotosHotel> PhotosHotels { get; set; }
 
         public string Description { get; set; }
 
