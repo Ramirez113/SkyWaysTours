@@ -30,5 +30,25 @@ namespace Core
             optionsBuilder.UseSqlServer(bd);
             base.OnConfiguring(optionsBuilder);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.HasOne(o => o.Client)
+                      .WithMany(c => c.Orders)
+                      .HasForeignKey(o => o.ClientID)
+                      .OnDelete(DeleteBehavior.Restrict); // Заміна каскаду
+
+                entity.HasOne(o => o.Tour)
+                      .WithMany(t => t.Orders)
+                      .HasForeignKey(o => o.TourID)
+                      .OnDelete(DeleteBehavior.Restrict); 
+            });
+        }
+
+
     }
 }

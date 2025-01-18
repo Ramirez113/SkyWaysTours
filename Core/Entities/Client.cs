@@ -20,5 +20,7 @@ namespace Core.Entities
         [ForeignKey(nameof(City))]
         public int CityID { get; set; }
         public City City { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
