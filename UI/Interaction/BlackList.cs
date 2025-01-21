@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.AddTour
+namespace UI.Interaction
 {
-    public partial class TourAdd : Form
+    public partial class BlackList : Form
     {
-        public TourAdd()
+        public BlackList()
         {
             InitializeComponent();
         }
