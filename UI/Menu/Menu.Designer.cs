@@ -47,11 +47,12 @@
             button2 = new Button();
             btnHome = new Button();
             LogoPan = new Panel();
+            panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label2 = new Label();
             pictureBox7 = new PictureBox();
             panelChildForm = new Panel();
-            button4 = new Button();
+            panel2 = new Panel();
             LargePan.SuspendLayout();
             subPanInfo.SuspendLayout();
             subPanTours.SuspendLayout();
@@ -77,7 +78,7 @@
             LargePan.Dock = DockStyle.Left;
             LargePan.Location = new Point(0, 0);
             LargePan.Name = "LargePan";
-            LargePan.Size = new Size(245, 570);
+            LargePan.Size = new Size(245, 720);
             LargePan.TabIndex = 0;
             // 
             // button1
@@ -87,10 +88,10 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(0, 507);
+            button1.Location = new Point(0, 660);
             button1.Name = "button1";
             button1.Padding = new Padding(50, 0, 0, 0);
-            button1.Size = new Size(245, 63);
+            button1.Size = new Size(245, 60);
             button1.TabIndex = 8;
             button1.Text = "User";
             button1.TextAlign = ContentAlignment.MiddleLeft;
@@ -346,6 +347,7 @@
             // LogoPan
             // 
             LogoPan.BackColor = Color.Navy;
+            LogoPan.Controls.Add(panel1);
             LogoPan.Controls.Add(pictureBox1);
             LogoPan.Controls.Add(label2);
             LogoPan.Dock = DockStyle.Top;
@@ -353,6 +355,13 @@
             LogoPan.Name = "LogoPan";
             LogoPan.Size = new Size(245, 82);
             LogoPan.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(245, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(438, 224);
+            panel1.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -380,7 +389,7 @@
             // 
             pictureBox7.BackColor = Color.Transparent;
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(681, 12);
+            pictureBox7.Location = new Point(1613, 20);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(31, 20);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -390,29 +399,29 @@
             // 
             // panelChildForm
             // 
-            panelChildForm.Controls.Add(button4);
             panelChildForm.Controls.Add(pictureBox7);
             panelChildForm.Dock = DockStyle.Fill;
             panelChildForm.Location = new Point(245, 0);
             panelChildForm.Name = "panelChildForm";
-            panelChildForm.Size = new Size(724, 570);
+            panelChildForm.Size = new Size(724, 720);
             panelChildForm.TabIndex = 4;
             // 
-            // button4
+            // panel2
             // 
-            button4.Location = new Point(587, 491);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 4;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            panel2.BackColor = Color.FromArgb(0, 0, 192);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(245, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(724, 41);
+            panel2.TabIndex = 5;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(969, 570);
+            ClientSize = new Size(969, 720);
+            Controls.Add(panel2);
             Controls.Add(panelChildForm);
             Controls.Add(LargePan);
             FormBorderStyle = FormBorderStyle.None;
@@ -436,7 +445,6 @@
         private Panel LargePan;
         private Panel LogoPan;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox7;
         private Panel subPanHome;
         private Button btnHome;
         private Button button3;
@@ -454,7 +462,9 @@
         private Label label2;
         private Button button14;
         private Button button1;
+        private Panel panel1;
+        private PictureBox pictureBox7;
         private Panel panelChildForm;
-        private Button button4;
+        private Panel panel2;
     }
 }

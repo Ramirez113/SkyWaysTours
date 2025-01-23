@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.AddTour
+namespace UI.Interaction
 {
-    public partial class Request : Form
+    public partial class RequestResult : Form
     {
-        public Request()
+        public RequestResult()
         {
             InitializeComponent();
         }
-
     }
 }
