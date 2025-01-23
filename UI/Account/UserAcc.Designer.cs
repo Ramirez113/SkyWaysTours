@@ -30,14 +30,14 @@
         {
             SuspendLayout();
             // 
-            // Account
+            // UserAcc
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(724, 570);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Account";
+            Name = "UserAcc";
             Text = "Account";
             ResumeLayout(false);
         }

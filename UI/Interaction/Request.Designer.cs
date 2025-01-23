@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label2 = new Label();
             comboBox1 = new ComboBox();
+            label2 = new Label();
             panel2 = new Panel();
             comboBox2 = new ComboBox();
             label1 = new Label();
             panel3 = new Panel();
+            textBox1 = new TextBox();
             label3 = new Label();
             panel4 = new Panel();
             comboBox4 = new ComboBox();
             label4 = new Label();
-            textBox1 = new TextBox();
             panel5 = new Panel();
+            label5 = new Label();
+            button1 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -55,8 +57,16 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 297);
             panel1.Name = "panel1";
-            panel1.Size = new Size(619, 99);
+            panel1.Size = new Size(619, 108);
             panel1.TabIndex = 0;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(17, 54);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(224, 28);
+            comboBox1.TabIndex = 8;
             // 
             // label2
             // 
@@ -68,14 +78,6 @@
             label2.Size = new Size(196, 28);
             label2.TabIndex = 7;
             label2.Text = "Chouse the hotel";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(17, 54);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(224, 28);
-            comboBox1.TabIndex = 8;
             // 
             // panel2
             // 
@@ -105,7 +107,6 @@
             label1.Size = new Size(429, 28);
             label1.TabIndex = 7;
             label1.Text = "Chouse the country where tour will be";
-            label1.Click += this.label1_Click;
             // 
             // panel3
             // 
@@ -116,6 +117,13 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(619, 99);
             panel3.TabIndex = 10;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(17, 55);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(224, 27);
+            textBox1.TabIndex = 8;
             // 
             // label3
             // 
@@ -157,13 +165,6 @@
             label4.TabIndex = 7;
             label4.Text = "Chouse the city";
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(17, 55);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(224, 27);
-            textBox1.TabIndex = 8;
-            // 
             // panel5
             // 
             panel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -171,10 +172,33 @@
             panel5.Controls.Add(panel4);
             panel5.Controls.Add(panel2);
             panel5.Controls.Add(panel3);
-            panel5.Location = new Point(54, 28);
+            panel5.Location = new Point(56, 64);
             panel5.Name = "panel5";
-            panel5.Size = new Size(619, 486);
+            panel5.Size = new Size(619, 408);
             panel5.TabIndex = 12;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label5.ForeColor = SystemColors.ControlLightLight;
+            label5.Location = new Point(272, 23);
+            label5.Name = "label5";
+            label5.Size = new Size(156, 28);
+            label5.TabIndex = 9;
+            label5.Text = "Tour Request";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(46, 51, 73);
+            button1.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            button1.ForeColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(56, 478);
+            button1.Name = "button1";
+            button1.Size = new Size(619, 38);
+            button1.TabIndex = 13;
+            button1.Text = "Search";
+            button1.UseVisualStyleBackColor = false;
             // 
             // Request
             // 
@@ -182,6 +206,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(724, 570);
+            Controls.Add(button1);
+            Controls.Add(label5);
             Controls.Add(panel5);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Request";
@@ -196,6 +222,7 @@
             panel4.PerformLayout();
             panel5.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -213,5 +240,7 @@
         private ComboBox comboBox4;
         private Label label4;
         private Panel panel5;
+        private Label label5;
+        private Button button1;
     }
 }
