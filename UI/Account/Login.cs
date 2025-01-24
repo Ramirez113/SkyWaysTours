@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Core;
+using System;
 using System.Drawing;
+using System.Web.Providers.Entities;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 using Timer = System.Windows.Forms.Timer;
 
 namespace UI.Account
@@ -20,6 +23,8 @@ namespace UI.Account
         {
             InitializeComponent();
             InitializeUI();
+
+            textBox2.PasswordChar = '*';
         }
 
         private void InitializeUI()
@@ -95,7 +100,55 @@ namespace UI.Account
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            InitializePlaneAnimation();
+            string login = textBox1.Text.Trim();
+            string password = textBox2.Text.Trim();
+
+            using (var cotext = new AppDbContext())
+            {
+                if (string.IsNullOrEmpty(login))
+                {
+                    MessageBox.Show("Please enter your login!");
+                }
+                
+                var user = cotext.Users.Where(u => u.Nickname != login && u.Nickname == login).FirstOrDefault();
+
+                if(login != null)
+                {
+                    if(user.Password == password)
+                    {
+                        Session.CurrentUserNick = user.Nickname;
+                        Session.CurrentUserID = user.ID;
+
+                        var mainForm = new Menu();
+                        mainForm.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorect password or nickname");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Oh, sorry something wrong!");
+                }
+            }
+            //InitializePlaneAnimation();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
