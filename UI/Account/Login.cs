@@ -100,24 +100,27 @@ namespace UI.Account
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string login = textBox1.Text.Trim();
+            string nickname = textBox1.Text.Trim();
             string password = textBox2.Text.Trim();
 
             using (var cotext = new AppDbContext())
             {
-                if (string.IsNullOrEmpty(login))
+                if (string.IsNullOrEmpty(nickname))
                 {
                     MessageBox.Show("Please enter your login!");
                 }
                 
-                var user = cotext.Users.Where(u => u.Nickname != login && u.Nickname == login).FirstOrDefault();
+                var user = cotext.Users.Where(u => u.Nickname != null && u.Nickname == nickname)
+                    .FirstOrDefault();
 
-                if(login != null)
+                if(nickname != null)
                 {
                     if(user.Password == password)
                     {
                         Session.CurrentUserNick = user.Nickname;
                         Session.CurrentUserID = user.ID;
+
+                        InitializePlaneAnimation();
 
                         var mainForm = new Menu();
                         mainForm.Show();
@@ -133,7 +136,7 @@ namespace UI.Account
                     MessageBox.Show("Oh, sorry something wrong!");
                 }
             }
-            //InitializePlaneAnimation();
+            
         }
 
 
